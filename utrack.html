@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>UTrack!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/ext/bootstrap.css"/>
+    <link rel="stylesheet" href="css/utrack.css"/>
+</head>
+<body>
+
+<div id="app_container" class="container">
+    <div class="page-header">
+        <h1>UTrack!</h1>
+        <h5>Track and analyze data that matters to you!</h5>
+    </div>
+
+
+
+    <div id = "tabs" class ="nav">
+        <button id="input_tab" class="btn btn-info">Input</button>
+        <button id="analysis_tab" class="btn btn-info">Analysis</button>
+
+    </div>
+
+
+    <div id = "display" align="center">
+
+    </div>
+
+    <div id="input_div">
+
+        <template id = "act" class ="input_class_check">
+            <div id="intro">Please select an activity and fill in the form below.<br> </div>
+            Activity: <select id ="activities" >
+            <option value = "code">Writing code</option>
+            <option value = "eat">Eating dinner</option>
+            <option value = "play">Playing Sport</option>
+            <option value = "study">Studying for exams</option>
+            <option value = "attend">Attending lectures</option>
+            <option value = "watch">Watching TV</option>
+            </select>
+        </template>
+        <template id ="el">
+            Energy Level (1 = exhausted, 5 = very awake):
+            <input type = "radio" name ="eL" id="level_one"><label for="level_one">1</label>
+            <input type = "radio" name ="eL" id="level_two"><label for="level_two">2</label>
+            <input type = "radio" name ="eL" id="level_three"><label for="level_three">3</label>
+            <input type = "radio" name ="eL" id="level_four"><label for="level_four">4</label>
+            <input type = "radio" name ="eL" id="level_five"><label for="level_five">5</label>
+        </template>
+        <template id = "sl" >
+            Stress Level (1 = very stressed, 5 = very relaxed):
+            <input type = "radio" name ="sL" id="level_one1"><label for="level_one1">1</label>
+            <input type = "radio" name ="sL" id="level_two2"><label for="level_two2">2</label>
+            <input type = "radio" name ="sL" id="level_three3"><label for="level_three3">3</label>
+            <input type = "radio" name ="sL" id="level_four4"><label for="level_four4">4</label>
+            <input type = "radio" name ="sL" id="level_five5"><label for="level_five5">5</label>
+        </template>
+        <template id="hl"  >
+            Happiness Level (1 = depressed, 5 = very happy):
+            <input type = "radio" name ="hL" id="level_1one"><label for="level_1one">1</label>
+            <input type = "radio" name ="hL" id="level_2two"><label for="level_2two">2</label>
+            <input type = "radio" name ="hL" id="level_3three"><label for="level_3three">3</label>
+            <input type = "radio" name ="hL" id="level_4four"><label for="level_4four">4</label>
+            <input type = "radio" name ="hL" id="level_5five"><label for="level_5five">5</label>
+        </template>
+        <template id="ts">
+            Time Spent: <input type = "text" id="ts_" > minutes
+        </template>
+
+        <template id = "js_currentTime">Last entry was: <span id="last_time"></span>
+            <br><button id="submit" class="btn ">Submit</button>
+        </template>
+
+
+
+    </div>
+
+    <div id="analysis_div">
+        <template id="view_selector" class ="view_class_check">
+            View: <input id ="vst" type="radio"><label for="vst">Table Summary</label>
+            <br><input id ="vss" type="radio"><label for="vss">Scatterplot</label>
+        </template>
+
+        <template id="table_view">
+            <table id="table_act">
+                <tr>
+                    <th>Activity</th>
+                    <th>Total Time Spent</th>
+                </tr>
+            </table>
+        </template>
+
+        <template id="graph_view">
+            <table id = "graph_table" width="800px" cellpadding="15" style ="border: none">
+                <td id = "display_selector" width="40%" class ="gt">
+                    <div id ="scatterInfo">Please check the categories you wish to see on the scatter plot:</div>
+                    <div><input type="checkbox" name = "graph_info" class ="checkbox">Energy Level:  <span id="o">o</span></div>
+                    <div><input type="checkbox" name = "graph_info" class ="checkbox">Stressful Level:  <span id="x">x</span></div>
+                    <div><input type="checkbox" name = "graph_info" class ="checkbox">Happiness Level:    <span id="plus">+</span></div>
+                    <div><button id="plot">Plot</button></div>
+                </td>
+                <td id ="bar_graph" class ="gt">
+                    <canvas id="draw" height = "300" width ="500" >
+
+                    </canvas>
+                </td>
+            </table>
+        </template>
+
+        <!--<div>-->
+            <!--<canvas id="canvas_demo">-->
+                <!--If you don't have an HTML5-compatible browser, you'll see this text.-->
+
+                <!--This canvas object can be removed after you understand canvas basics.-->
+            <!--</canvas>-->
+        <!--</div>-->
+        <!--<button id="run_canvas_demo_button" class="btn btn-primary">Run Canvas Demo</button>-->
+    </div>
+
+    <div id="unit_tests">
+        <!-- Keep this here so TAs can run your unit tests -->
+        <a href="unit_tests.html">Run Unit Tests</a>
+    </div>
+
+</div>
+
+<script src="js/ext/underscore.js"></script>
+<script src="js/model.js"></script>
+<script src="js/view.js"></script>
+<script src="js/utrack.js"></script>
+</body>
+</html>
